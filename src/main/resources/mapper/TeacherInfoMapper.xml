@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huige.Institution.dao.TeacherInfoMapper">
+
+
+    <insert id="insert" parameterType="TeacherInfo" useGeneratedKeys="true" keyColumn="teacherId" keyProperty="teacherId">
+        INSERT INTO teacherinfo(name, sex, subject, hobby, honor, image)
+        VALUES(#{name}, #{sex}, #{subject}, #{hobby}, #{honor}, #{image})
+    </insert>
+
+    <update id="update" parameterType="TeacherInfo">
+        update teacherinfo
+        set name = #{name}, sex = #{sex}, subject = #{subject}, hobby = #{hobby},
+        honor = #{honor}
+        where teacherId = #{teacherId}
+    </update>
+</mapper>

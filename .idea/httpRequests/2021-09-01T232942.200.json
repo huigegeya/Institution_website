@@ -1,0 +1,41 @@
+{
+  "msg": "操作成功",
+  "code": 200,
+  "data": {
+    "total": 1,
+    "list": [
+      {
+        "id": 7,
+        "title": "函数式接口",
+        "content": "   虽然Lambda表达式可以实现匿名内部类的功能，但在使用时却有一个局限，即接口中有且只有一个抽......",
+        "created": "2018-11-30 16:00:00",
+        "modified": null,
+        "categoryId": 1,
+        "tags": "接口,函数式接口",
+        "allowComment": true,
+        "thumbnail": null,
+        "author": "admin",
+        "hitsNum": 6,
+        "commentsNum": 0
+      }
+    ],
+    "pageNum": 1,
+    "pageSize": 5,
+    "size": 1,
+    "startRow": 1,
+    "endRow": 1,
+    "pages": 1,
+    "prePage": 0,
+    "nextPage": 0,
+    "isFirstPage": true,
+    "isLastPage": true,
+    "hasPreviousPage": false,
+    "hasNextPage": false,
+    "navigatePages": 8,
+    "navigatepageNums": [
+      1
+    ],
+    "navigateFirstPage": 1,
+    "navigateLastPage": 1
+  }
+}

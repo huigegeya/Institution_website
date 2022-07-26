@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huige.Institution.dao.HonorMapper">
+    <!-- 根据分类，关键词，作者查询最新文章 -->
+    <select id="select" resultType="Honor">
+        SELECT *
+        FROM honor
+        <where>
+            <if test="Subject != null and Subject != ''">
+                 (Subject like CONCAT(CONCAT('%', #{Subject}), '%') or honorWinner like CONCAT(CONCAT('%', #{Subject}), '%') or honorContent like CONCAT(CONCAT('%', #{Subject}), '%'))
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="Honor" useGeneratedKeys="true" keyColumn="honorWinnerId" keyProperty="honorWinnerId">
+        INSERT INTO honor(honorWinner, time, subject, honorContent)
+        VALUES(#{honorWinner}, #{time}, #{subject}, #{honorContent})
+    </insert>
+
+</mapper>

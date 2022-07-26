@@ -1,0 +1,22 @@
+server:
+  port: 8093
+
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+  datasource:
+    # serverTimezone为设置时区，“GMT%2B8”即GMT+8,东八区北京时间
+    url: jdbc:mysql://localhost:3306/institution?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    druid:
+      initial-size: 5
+      min-idle: 3
+      max-active: 10

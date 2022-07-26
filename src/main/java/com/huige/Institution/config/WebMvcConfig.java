@@ -1,0 +1,15 @@
+package com.huige.Institution.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class WebMvcConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        //映射图片保存地址
+        registry.addResourceHandler("/image/**").addResourceLocations("file:D:/file/");
+    }
+}

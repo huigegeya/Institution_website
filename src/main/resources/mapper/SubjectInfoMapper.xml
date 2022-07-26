@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huige.Institution.dao.SubjectInfoMapper">
+    <!-- 根据关键词，作者查询最新文章 -->
+    <select id="select" resultType="SubjectInfo">
+        SELECT *
+        FROM subjectinfo
+        <where>
+            <if test="subjectName != null and subjectName != ''">
+                 (subjectName like CONCAT(CONCAT('%', #{subjectName}), '%')
+                or teacher like CONCAT(CONCAT('%', #{subjectName}), '%')
+                or startTime like CONCAT(CONCAT('%', #{subjectName}), '%'))
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="SubjectInfo" useGeneratedKeys="true" keyColumn="subjectId" keyProperty="subjectId">
+        INSERT INTO subjectinfo(subjectName, teacher, startTime, maxNum, peopleNum, classTime)
+        VALUES(#{subjectName}, #{teacher}, #{startTime}, #{maxNum}, #{peopleNum}, #{classTime})
+    </insert>
+
+    <update id="update" parameterType="SubjectInfo">
+        update subjectinfo
+        set subjectName = #{subjectName}, teacher = #{teacher}, startTime = #{startTime}, maxNum = #{maxNum},
+        classTime = #{classTime}
+        where subjectId = #{subjectId}
+    </update>
+</mapper>

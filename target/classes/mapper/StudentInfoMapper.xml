@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huige.Institution.dao.StudentInfoMapper">
+
+
+    <insert id="insert" parameterType="StudentInfo" useGeneratedKeys="true" keyColumn="stuId"
+            keyProperty="teacherId">
+        INSERT INTO studentinfo(name, sex, subject, hobby, honor, image,score)
+        VALUES(#{name}, #{sex}, #{subject}, #{hobby}, #{honor}, #{image},#{score})
+    </insert>
+
+    <update id="update" parameterType="StudentInfo">
+        update studentinfo
+        set name = #{name}, sex = #{sex}, subject = #{subject}, hobby = #{hobby},
+        honor = #{honor}, score = #{score}
+        where stuId = #{stuId}
+    </update>
+</mapper>

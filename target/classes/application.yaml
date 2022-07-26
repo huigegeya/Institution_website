@@ -1,0 +1,47 @@
+
+spring:
+  profiles:
+    # 指定外置配置文件
+    active: dev,mail
+  servlet:
+    multipart:
+      max-file-size: 1MB
+      max-request-size: 5MB
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.huige.Institution.domain.entity
+
+# pagehelper设置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+# 输出sql语句
+logging:
+  level:
+    com:
+      itheima:
+        blog:
+          dao: debug
+
+# token配置
+token:
+  # 令牌自定义标识
+  header: Authorization
+  # 令牌密钥
+  secret: abcdefghijklmnopqrstuvwxyz
+  # 令牌有效期（默认30分钟）
+  expireTime: 30
+
+# 上传目录
+upload-path: C:/upload/
+# 上传文件访问路径
+upload-access-path: /upload/
